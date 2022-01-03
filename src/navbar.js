@@ -2,7 +2,7 @@ import * as rb from 'react-bootstrap';
 
 const Navbar = () => {
     return (
-<rb.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+<rb.Navbar id='nav-body' collapseOnSelect expand="lg" bg="dark" variant="dark">
   <rb.Container fluid>
   <rb.Navbar.Brand className='nav-brand' href="#home">SortingVisualizer</rb.Navbar.Brand>
   <rb.Navbar.Toggle aria-controls="responsive-navbar-nav" />
