@@ -6,7 +6,25 @@
 :root{
   --Anton: "Anton", sans-serif;
 }
+html{
+  background: #303133;
+}
 .nav-brand{
   font-family: var(--Anton);
   font-size: 1.5rem;
+  z-index: 1 !important;
 }
+.sorting{
+  position: relative;
+  width: 100%;
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+.point{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+

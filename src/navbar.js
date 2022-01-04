@@ -29,5 +29,4 @@ const Navbar = () => {
 </rb.Navbar>
     );
 }
- 
 export default Navbar;
