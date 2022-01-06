@@ -17,12 +17,12 @@ const Navbar = () => {
           {/* <rb.Nav.Link href="#pricing">Pricing</rb.Nav.Link> */}
           <rb.NavDropdown title="Sorting-Algorithms" id="collasible-nav-dropdown">
             { algoArr.filter(i => i!==sortingAlgo).map(i => (
-              <rb.NavDropdown.Item id={i} onClick={e => setSortingAlgo(e.target.id)}>{i}</rb.NavDropdown.Item>
+              <rb.NavDropdown.Item id={i} onClick={e => setSortingAlgo(e.target.id)} key={i}>{i}</rb.NavDropdown.Item>
             ))}
           </rb.NavDropdown>
         </rb.Nav>
         <rb.Nav>
-          <rb.Nav.Link href="#deets">More deets</rb.Nav.Link>
+          <rb.Nav.Link id='reset'>Shuffle</rb.Nav.Link>
           <rb.Nav.Link eventKey={2} href="#memes">
             Dank memes
           </rb.Nav.Link>
