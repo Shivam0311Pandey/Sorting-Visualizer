@@ -33,28 +33,31 @@ const useArr = () => {
     }
 
     const shuffle = () =>{
-        const newArr = shuffledArr;
-        let idx= newArr.length, temp, index;
+        let idx= shuffledArr.length, temp, index;
         console.log(idx);
         const node = document.querySelectorAll('.point');
         console.log(node[idx-1]);
         console.log(node[0]);
-        while(idx>0){
-            index = Math.floor(Math.random()*idx);
-            idx--;
-            temp = newArr[idx];
-            newArr[idx] = newArr[index];
-            newArr[index] = temp;
-            function func(i, idx){
-                setTimeout(() => {
-                    i.style.bottom = `${newArr[idx]}px`;
-                }, (size-idx)*0.000000000001);
+        function req(){
+            let start = Date.now(); 
+            while(Date.now()-start<0.1){
             }
-            func( node[idx], idx);
-           
+            let i=0;
+            while(i<500){
+            let index = Math.floor(Math.random()*idx);
+            idx--;
+            temp = shuffledArr[idx];
+            shuffledArr[idx] = shuffledArr[index];  
+            shuffledArr[index] = temp;
+            node[idx].style.bottom = `${shuffledArr[idx]}px`;
+            node[index].style.bottom = `${shuffledArr[index]}px`;
+            i++;
+            }
+            if(idx>0){
+                requestAnimationFrame(req);
+            }
         }
-        shuffledArr = newArr;
-        console.log('hello');
+        requestAnimationFrame(req);
     }
 
     return { arr, incrementX, size, width, incrementY };
