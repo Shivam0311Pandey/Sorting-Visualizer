@@ -1,11 +1,19 @@
 import * as rb from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const Navbar = () => {
+const Navbar = ({isSorting}) => {
 
   const[sortingAlgo ,setSortingAlgo] = useState('Choose')
   const algoArr = ['Bubble Sort', 'Heap Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort', 'Radix Sort', 'Selection Sort'];
+  let cursor;
   
+  
+  if(isSorting){
+    cursor = 'default';
+  } else{
+    cursor = 'ponter';
+  }
+
   return (
     <rb.Navbar id='nav-body' collapseOnSelect expand="lg" bg="dark" variant="dark">
       <rb.Container fluid>
@@ -22,10 +30,11 @@ const Navbar = () => {
           </rb.NavDropdown>
         </rb.Nav>
         <rb.Nav>
-          <rb.Nav.Link id='reset'>Shuffle</rb.Nav.Link>
-          <rb.Nav.Link eventKey={2} href="#memes">
-            Dank memes
+          <rb.Nav.Link id='reset' style={{cursor: 'pointer'}}>Shuffle</rb.Nav.Link>
+          <rb.Nav.Link eventKey={2} id='sort' style={{cursor: 'pointer'}} data-sortalgo={sortingAlgo}>
+            Sort!
           </rb.Nav.Link>
+          
         </rb.Nav>
       </rb.Navbar.Collapse>
       </rb.Container>

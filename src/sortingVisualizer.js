@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import useArr from "./array";
 
-const SortingVisualizer = () => {
+const SortingVisualizer = ({isSorting, setIsSorting}) => {
 //arr, incrementX,
-    const { arr, incrementX, size, width, incrementY } = useArr();
-
+    const { arr, incrementX, size, width, incrementY } = useArr(isSorting, setIsSorting);
+    
     const colorArr = ['red', 'blue', 'yellow', 'lightblue', 'green', 'maroon', 'lightgreen'];
     
 
