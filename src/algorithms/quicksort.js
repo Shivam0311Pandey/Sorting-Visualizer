@@ -1,6 +1,10 @@
-const QuickSort = (array) => {
+import swap from "./utility";
+
+const QuickSort = (array, size) => {
     
     const node = document.querySelectorAll('.point');
+    const x = size> 5000? 0: size>2500? 1.25:1.75;
+    let num=0;
     quickSortHelper(array, 0, array.length-1);
     
     function quickSortHelper(array, startIdx, endIdx){
@@ -13,13 +17,13 @@ const QuickSort = (array) => {
         while(leftIdx <= rightIdx){
             if(array[leftIdx]>array[pivot] && array[rightIdx]<array[pivot]){
                 swap(leftIdx, rightIdx, array);
-                qsort(leftIdx, rightIdx, array[leftIdx], array[rightIdx]);    
+                nsort(leftIdx, rightIdx, array[leftIdx], array[rightIdx]);   
             }
             if(array[leftIdx] <= array[pivot]) leftIdx++;
             if(array[rightIdx] >= array[pivot]) rightIdx--;	
         }
         swap(pivot, rightIdx, array);
-        qsort(pivot, rightIdx, array[pivot], array[rightIdx]);
+        nsort(pivot, rightIdx, array[pivot], array[rightIdx]);
         const isLeftSmaller = rightIdx-1-startIdx < endIdx-(1+rightIdx);
         if(isLeftSmaller){
             quickSortHelper(array, startIdx, rightIdx-1);
@@ -30,21 +34,14 @@ const QuickSort = (array) => {
             quickSortHelper(array, startIdx, rightIdx-1);
         }
     }
-    function qsort(firstIdx, secondIdx, arrayFirst, arraySecond){
+    function nsort(i, j, arrI, arrJ){
         setTimeout(()=>{
-            node[firstIdx].style.bottom = `${arrayFirst}px`;
-            node[secondIdx].style.bottom = `${arraySecond}px`;
-        }, 0);
-    }
-
-    
+            node[i].style.bottom = `${arrI}px`;
+            node[j].style.bottom = `${arrJ}px`;
+        }, x*num);
+        num++;
+    }  
     return array;
 }
  
 export default QuickSort;
-
-function swap(i, j, array){
-    const temp = array[i];
-    array[i]=array[j];
-    array[j]=temp;
-}

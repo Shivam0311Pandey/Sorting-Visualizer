@@ -1,8 +1,9 @@
+import swap from "./utility";
+
 const BubbleSort = (array) => {
     let isSorted = false;
 	let i=0;
     console.log(array);
-    let idx=0;
     const node = document.querySelectorAll('.point');
     function bsort(){
         isSorted = true;
@@ -24,9 +25,3 @@ const BubbleSort = (array) => {
 }
  
 export default BubbleSort;
-
-function swap(i, j, array){
-    const temp = array[i];
-    array[i]=array[j];
-    array[j]=temp;
-}

@@ -1,9 +1,7 @@
-import { useEffect } from "react";
 import useArr from "./array";
 
-const SortingVisualizer = ({isSorting, setIsSorting}) => {
-//arr, incrementX,
-    const { arr, incrementX, size, width, incrementY } = useArr(isSorting, setIsSorting);
+const SortingVisualizer = () => {
+    const { arr, incrementX, size, incrementY } = useArr();
     
     const colorArr = ['red', 'blue', 'yellow', 'lightblue', 'green', 'maroon', 'lightgreen'];
     
