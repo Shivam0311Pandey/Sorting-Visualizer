@@ -41,7 +41,7 @@ const useArr = () => {
                 resetElement.style.cursor = 'default';
                 sortalgo = sortalgo.replace(/ +/g, "");
                 if(sortalgo === "BubbleSort")
-                    shuffledArr = BubbleSort(shuffledArr, sortElement, resetElement);
+                    shuffledArr = BubbleSort(shuffledArr, sortElement, resetElement, x);
                 else if(sortalgo === "QuickSort")
                     shuffledArr = QuickSort(shuffledArr, sortElement, resetElement, x);
                 else if(sortalgo === "HeapSort")
