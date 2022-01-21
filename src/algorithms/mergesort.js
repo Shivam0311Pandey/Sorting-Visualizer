@@ -28,9 +28,11 @@ const MergeSort = (array, sortElement, resetElement, x) => {
         }
         while(i<=middle){
                 array[k++] = auxiliaryArray[i++];
+                msort(k-1, array[k-1]);
         }
         while(j<=endIdx){
                 array[k++] = auxiliaryArray[j++];
+                msort(k-1, array[k-1]);
         }
     }
 
