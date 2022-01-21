@@ -29,7 +29,7 @@ const BubbleSort = (array, sortElement, resetElement, x) => {
     }
     setTimeout(() => {
         bsort()
-    }, 0);
+    }, x*num++);
     
 	return array;
 }
