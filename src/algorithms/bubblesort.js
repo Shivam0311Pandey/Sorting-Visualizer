@@ -1,9 +1,8 @@
 import swap from "./utility";
 
-const BubbleSort = (array) => {
+const BubbleSort = (array, sortElement, resetElement) => {
     let isSorted = false;
 	let i=0;
-    console.log(array);
     const node = document.querySelectorAll('.point');
     function bsort(){
         isSorted = true;
@@ -15,12 +14,22 @@ const BubbleSort = (array) => {
                 node[j+1].style.bottom = `${array[j+1]}px`;
             }
         }
-       i++; 
-       if(!isSorted){
-        requestAnimationFrame(bsort);
-       }
+        i++; 
+        if(!isSorted){
+            setTimeout(() => {
+                bsort();  
+            }, 0);
+        } else{
+            setTimeout(() => {
+                sortElement.style.cursor = 'pointer';
+                resetElement.style.cursor = 'pointer';
+            }, 0);
+        }
     }
-    requestAnimationFrame(bsort);
+    setTimeout(() => {
+        bsort()
+    }, 0);
+    
 	return array;
 }
  

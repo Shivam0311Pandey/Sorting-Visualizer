@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const Navbar = () => {
 
   const[sortingAlgo ,setSortingAlgo] = useState('Choose');
-  const algoArr = ['Bubble Sort', 'Heap Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort', 'Radix Sort', 'Selection Sort'];
+  const algoArr = ['Bubble Sort', 'Heap Sort', 'Merge Sort', 'Quick Sort'];
 
 
   if(!localStorage.getItem('userMode')){
@@ -52,7 +52,7 @@ const Navbar = () => {
           </rb.NavDropdown>
         </rb.Nav>
         <rb.Nav>
-          <rb.Nav.Link id='mod' onClick={handleClick} > { mode === "dark"? <i className="bi bi-brightness-high-fill"></i> : <i className="bi bi-moon-fill"></i> } </rb.Nav.Link>
+          <rb.Nav.Link onClick={handleClick} > { mode === "dark"? <i className="bi bi-brightness-high-fill"></i> : <i className="bi bi-moon-fill"></i> } </rb.Nav.Link>
           <rb.Nav.Link id='reset' style={{cursor: 'pointer'}}> Shuffle </rb.Nav.Link>
           <rb.Nav.Link eventKey={2} id='sort' style={{cursor: 'pointer'}} data-sortalgo={sortingAlgo}>
             Sort!

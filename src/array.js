@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import  BubbleSort from "./algorithms/bubblesort"
 import HeapSort from "./algorithms/heapsort";
+import MergeSort from "./algorithms/mergesort";
 import QuickSort from "./algorithms/quicksort";
 
 
@@ -18,6 +19,7 @@ const useArr = () => {
         const nodeHeight= ReactDOM.findDOMNode(document.getElementById('nav-body')).offsetHeight;
         const sortElement = ReactDOM.findDOMNode(document.getElementById('sort'));
         const resetElement = ReactDOM.findDOMNode(document.getElementById('reset'));
+        const x = size> 5000? 0: size>2500? 1.25:1.75;
         const incY = (height- nodeHeight-3.5)/size; 
         setIncrementY((height- nodeHeight-0.1)/size);
         createArr(incY);
@@ -38,17 +40,14 @@ const useArr = () => {
                 sortElement.style.cursor = 'default';
                 resetElement.style.cursor = 'default';
                 sortalgo = sortalgo.replace(/ +/g, "");
-                console.log('hello');
                 if(sortalgo === "BubbleSort")
-                    shuffledArr = BubbleSort(shuffledArr);
+                    shuffledArr = BubbleSort(shuffledArr, sortElement, resetElement);
                 else if(sortalgo === "QuickSort")
-                    shuffledArr = QuickSort(shuffledArr, size);
+                    shuffledArr = QuickSort(shuffledArr, sortElement, resetElement, x);
                 else if(sortalgo === "HeapSort")
-                    shuffledArr = HeapSort(shuffledArr, size);
-                setTimeout(() => {
-                    sortElement.style.cursor = 'pointer';
-                    resetElement.style.cursor = 'pointer';
-                }, 0);
+                    shuffledArr = HeapSort(shuffledArr, sortElement, resetElement, x);
+                else if(sortalgo === "MergeSort")
+                    shuffledArr = MergeSort(shuffledArr, sortElement, resetElement, x);
             }
         };
     }, []);

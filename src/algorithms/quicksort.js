@@ -1,9 +1,7 @@
 import swap from "./utility";
 
-const QuickSort = (array, size) => {
-    
+const QuickSort = (array, sortElement, resetElement, x) => {
     const node = document.querySelectorAll('.point');
-    const x = size> 5000? 0: size>2500? 1.25:1.75;
     let num=0;
     quickSortHelper(array, 0, array.length-1);
     
@@ -38,9 +36,12 @@ const QuickSort = (array, size) => {
         setTimeout(()=>{
             node[i].style.bottom = `${arrI}px`;
             node[j].style.bottom = `${arrJ}px`;
-        }, x*num);
-        num++;
-    }  
+        }, x*num++);
+    }
+    setTimeout(() => {
+        sortElement.style.cursor = 'pointer';
+        resetElement.style.cursor = 'pointer';
+    }, x*num);  
     return array;
 }
  
