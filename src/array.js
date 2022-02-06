@@ -12,6 +12,7 @@ const useArr = () => {
     const incrementX =  (window.innerWidth-3)/size;
     const height = window.innerHeight;
     const [incrementY, setIncrementY] = useState(null);
+    console.log('hello');
     
     let shuffledArr = [];
 
